@@ -1,2 +1,5 @@
+<div>Data: {{storageUsage}}</div>
+<button (click)="clearData()">Clear Data</button>
 <button (click)="loadFile()">Load Video</button>
-<video style="height: 500px; width: auto;" controls #video></video>
+<video style="height: 500px; width: auto;" controls *ngIf="videoSrc" [src]="videoSrc | bypassSanitize"></video>
+<div>{{roomState | json}}</div>

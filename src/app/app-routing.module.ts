@@ -4,7 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {component: HomeComponent, path: 'lobby'},
-  {component: HomeComponent, path: 'lobby/:id'},
+  {component: HomeComponent, path: 'lobby/:roomId'},
   {pathMatch: 'full', path: '', redirectTo: '/lobby'}
 ];
 
