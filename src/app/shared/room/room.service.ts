@@ -51,7 +51,7 @@ export class RoomService {
       timeout(this.pingTimeout),
       catchError(() => {
         console.error('user timed out', conn.connectionId);
-        this.disconnectUser(conn.connectionId);
+        // this.disconnectUser(conn.connectionId);
         return of(undefined);
       })
     ).subscribe((packet) => {
