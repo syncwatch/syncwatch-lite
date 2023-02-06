@@ -1,0 +1,87 @@
+{
+  "configVersion": 1,
+  "timestamp": 1675713335901,
+  "index": "/syncwatch-lite/app/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/syncwatch-lite/app/696.939e9f4f155ca381.js",
+        "/syncwatch-lite/app/82.24fad4c3b81c2f41.js",
+        "/syncwatch-lite/app/953.cdf90aba7f6abee6.js",
+        "/syncwatch-lite/app/favicon.ico",
+        "/syncwatch-lite/app/index.html",
+        "/syncwatch-lite/app/main.4ba27ce1eda1737a.js",
+        "/syncwatch-lite/app/manifest.webmanifest",
+        "/syncwatch-lite/app/polyfills.d4b17772434cd647.js",
+        "/syncwatch-lite/app/runtime.c079c40aeeb411f1.js",
+        "/syncwatch-lite/app/styles.ef46db3751d8e999.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/syncwatch-lite/app/assets/icons/icon-128x128.png",
+        "/syncwatch-lite/app/assets/icons/icon-144x144.png",
+        "/syncwatch-lite/app/assets/icons/icon-152x152.png",
+        "/syncwatch-lite/app/assets/icons/icon-192x192.png",
+        "/syncwatch-lite/app/assets/icons/icon-384x384.png",
+        "/syncwatch-lite/app/assets/icons/icon-512x512.png",
+        "/syncwatch-lite/app/assets/icons/icon-72x72.png",
+        "/syncwatch-lite/app/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/syncwatch-lite/app/696.939e9f4f155ca381.js": "28d6b3ff5cb3b2b013f379278a91b5b6d04f092d",
+    "/syncwatch-lite/app/82.24fad4c3b81c2f41.js": "4fa263a6b54c18350d6c0f80f9d6f5824f93429e",
+    "/syncwatch-lite/app/953.cdf90aba7f6abee6.js": "d5242f7f91d1260b4c45aed9c3ec8f595c8c345b",
+    "/syncwatch-lite/app/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/syncwatch-lite/app/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/syncwatch-lite/app/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/syncwatch-lite/app/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/syncwatch-lite/app/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/syncwatch-lite/app/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/syncwatch-lite/app/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/syncwatch-lite/app/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/syncwatch-lite/app/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/syncwatch-lite/app/index.html": "59032a89b5ff92b16024789acfc74be91ed0b6f7",
+    "/syncwatch-lite/app/main.4ba27ce1eda1737a.js": "d0ec0216fd5904f883f792ca1a68caf05b2a96c0",
+    "/syncwatch-lite/app/manifest.webmanifest": "2b9af9ba29fdb8d3abd454b1c768248f6a17c844",
+    "/syncwatch-lite/app/polyfills.d4b17772434cd647.js": "4ebc0c477ef46903a05f630f6024abe78f0990b5",
+    "/syncwatch-lite/app/runtime.c079c40aeeb411f1.js": "9fe760a15d9c4d5177eb249a1b8a086d612a01be",
+    "/syncwatch-lite/app/styles.ef46db3751d8e999.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
