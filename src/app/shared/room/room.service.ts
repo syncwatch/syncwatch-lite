@@ -27,7 +27,7 @@ export class RoomService {
     public storageService: StorageService,
   ) {
     interval(this.pingInterval).subscribe(() => {
-      this.pingConnections();
+      if (this.isHost) this.pingConnections();
     });
   }
 
@@ -50,6 +50,7 @@ export class RoomService {
     this.sendWaitResponse(conn, new PingPacket(Date.now())).pipe(
       timeout(this.pingTimeout),
       catchError(() => {
+        console.error('user timed out', conn.connectionId);
         this.disconnectUser(conn.connectionId);
         return of(undefined);
       })
@@ -84,15 +85,14 @@ export class RoomService {
       }
       if (connId in roomState.users) {
         delete roomState.users[connId];
-        this.roomState.next(roomState);
-        this.broadcast(new RoomStatePacket(roomState));
+        this.setRoomState(roomState);
       }
     });
   }
 
   broadcast(packet: Packet) {
     for (let conn of Object.values(this.connections)) {
-      conn.send(packet);
+      if (conn.open) conn.send(packet);
     }
   }
 
@@ -120,8 +120,10 @@ export class RoomService {
     this.connections[conn.connectionId] = conn;
     this.broadcast(new JoinRoomPacket(this.me!));
     const v = new ClientVisitor(this, conn);
-    fromEvent(conn, 'close').subscribe(() => {
-      // console.error('disconnect', conn.connectionId);
+    fromEvent(conn, 'close').pipe(
+      first(),
+    ).subscribe(() => {
+      console.error('reconnecting', conn.connectionId);
       // this.disconnect();
       this.roomState.pipe(first()).subscribe((roomState) => this.joinRoom(this.me!.name, roomState!.id).subscribe())
     });
@@ -139,7 +141,7 @@ export class RoomService {
   }
 
   createRoom(username: string): Observable<string> {
-    this.peer = new Peer();
+    this.peer = new Peer('');
 
     return fromEvent(this.peer, 'open').pipe(
       first(),
@@ -158,7 +160,7 @@ export class RoomService {
   }
 
   joinRoom(username: string, roomId: string): Observable<string> {
-    this.peer = new Peer();
+    this.peer = new Peer('');
     return fromEvent(this.peer, 'open').pipe(
       first(),
       switchMap((id) => {
