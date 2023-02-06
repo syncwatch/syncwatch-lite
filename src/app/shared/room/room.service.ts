@@ -7,7 +7,7 @@ import { catchError, first, fromEvent, map, Observable, switchMap, timeout } fro
 })
 export class RoomService {
   private peer?: Peer;
-  public isHost: boolean = true;
+  public isHost?: boolean;
   public id?: string;
   public roomId?: string;
 
@@ -51,7 +51,7 @@ export class RoomService {
     });
   }
 
-  joinRoom(username: string, roomId: string, stream: MediaStream): Observable<MediaStream> {
+  joinRoom(roomId: string, stream: MediaStream): Observable<MediaStream> {
     this.peer = new Peer();
     return fromEvent(this.peer, 'open').pipe(
       first(),

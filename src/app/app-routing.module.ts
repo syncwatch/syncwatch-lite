@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
-  {component: HomeComponent, path: 'home'},
-  {pathMatch: 'full', path: '', redirectTo: '/home'}
+  {component: HomeComponent, path: 'lobby'},
+  {component: HomeComponent, path: 'lobby/:id'},
+  {pathMatch: 'full', path: '', redirectTo: '/lobby'}
 ];
 
 @NgModule({
