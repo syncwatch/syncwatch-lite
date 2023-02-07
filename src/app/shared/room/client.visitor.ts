@@ -19,7 +19,7 @@ export class ClientVisitor extends Visitor<void> {
   }
 
   override visitMovieFragment(e: MovieFragmentPacket): void {
-    console.log(e);
+    // console.log(e);
     this.roomService.storageService.putMovieFragment(e.fragment);
   }
 }

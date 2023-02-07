@@ -43,13 +43,13 @@ export class HostVisitor extends Visitor<void> {
   }
 
   override visitMovieFragment(e: MovieFragmentPacket): void {
-    console.log(e);
+    // console.log(e);
     (async () => {
       const {buffers, start, end} = await db.getMovieBuffer(e.fragment.movie_id, e.fragment.start, e.fragment.end);
-      console.log(start, end, buffers.length);
+      // console.log(start, end, buffers.length);
       let offset = 0;
       for (let buffer of buffers) {
-        this.clientConn.send(new MovieFragmentPacket({
+        this.roomService.sendMovieFragment(this.clientConn, new MovieFragmentPacket({
           movie_id: e.fragment.movie_id,
           start: start + offset,
           end: start + offset + buffer.byteLength,

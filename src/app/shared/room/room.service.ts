@@ -10,6 +10,7 @@ import { User } from './user';
 import { RoomStatePacket as RoomStatePacket } from '../packets/room-state.packet';
 import { PingPacket } from '../packets/ping.packet';
 import { StorageService } from '../storage/storage.service';
+import { MovieFragmentPacket } from '../packets/movie-fragment.packet';
 
 @Injectable()
 export class RoomService {
@@ -190,5 +191,26 @@ export class RoomService {
   setRoomState(roomState: RoomState): void {
     this.roomState.next(roomState);
     this.broadcast(new RoomStatePacket(roomState));
+  }
+
+
+  cache: {[connId: string]: {[movieId: string]: {[start: number]: {last: number, times: number}}}} = {};
+  sendMovieFragment(conn: DataConnection, packet: MovieFragmentPacket): void {
+    if (!(conn.connectionId in this.cache)) {
+      this.cache[conn.connectionId] = {};
+    }
+    if (!(packet.fragment.movie_id in this.cache[conn.connectionId])) {
+      this.cache[conn.connectionId][packet.fragment.movie_id] = {};
+    }
+    if (!(packet.fragment.start in this.cache[conn.connectionId][packet.fragment.movie_id])) {
+      this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start] = {last: 0, times: 0};
+    }
+    const now = Date.now();
+    console.log(packet.fragment.movie_id, packet.fragment.start, this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].times, now - this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].last);
+    if (this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].last < now - 2000) {
+      conn.send(packet);
+      this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].last = now;
+      this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].times += 1;
+    }
   }
 }
