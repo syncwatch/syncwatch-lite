@@ -206,7 +206,7 @@ export class RoomService {
       this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start] = {last: 0, times: 0};
     }
     const now = Date.now();
-    console.log(packet.fragment.movie_id, packet.fragment.start, this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].times, now - this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].last);
+    console.log(conn.connectionId, packet.fragment.start, this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].times, now - this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].last);
     if (this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].last < now - 2000) {
       conn.send(packet);
       this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].last = now;
