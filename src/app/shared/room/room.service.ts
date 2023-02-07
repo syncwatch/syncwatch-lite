@@ -205,12 +205,13 @@ export class RoomService {
     if (!(packet.fragment.start in this.cache[conn.connectionId][packet.fragment.movie_id])) {
       this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start] = {last: 0, times: 0};
     }
+    this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].times += 1;
     const now = Date.now();
     console.log(conn.connectionId, packet.fragment.start, this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].times, now - this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].last);
-    if (this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].last < now - 2000) {
+    if (this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].times == 1
+      || (this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].times > 2 && this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].last < now - 2000)) {
       conn.send(packet);
       this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].last = now;
-      this.cache[conn.connectionId][packet.fragment.movie_id][packet.fragment.start].times += 1;
     }
   }
 }
