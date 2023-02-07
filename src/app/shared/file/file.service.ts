@@ -13,7 +13,7 @@ export class FileService {
     a.click();
   }
 
-  loadFile(accept: string): Observable<Blob> {
+  loadFile(accept: string): Observable<File> {
     const input = document.createElement('input');
     input.type = 'file';
     input.style.display = 'none';

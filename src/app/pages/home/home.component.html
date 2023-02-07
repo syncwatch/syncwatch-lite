@@ -1,5 +1,6 @@
 <div>Data: {{storageUsage}}</div>
 <button (click)="clearData()">Clear Data</button>
 <button (click)="loadFile()">Load Video</button>
+<button *ngFor="let movie of movies" (click)="loadMovie(movie)">{{movie.title}}</button>
 <video style="height: 500px; width: auto;" controls *ngIf="videoSrc" [src]="videoSrc | bypassSanitize"></video>
 <div>{{roomState | json}}</div>

@@ -25,7 +25,7 @@ async function getMovieStream(event: FetchEvent, url: URL, trys: number = 0): Pr
       },
     );
 
-    if (movie === undefined || movie.downloaded_length < movie.content_length) {
+    if (movie === undefined) {
       await db.requested_movie_fragment.put({movie_id: movie_id, data_id: 0, start: -1, end: -1});
       await new Promise(r => setTimeout(r, requestSleep));
       return await getMovieStream(event, url, trys + 1);

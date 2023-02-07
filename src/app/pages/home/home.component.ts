@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, first, interval, map, of, switchMap } from 'rxjs';
 import { FileService } from 'src/app/shared/file/file.service';
 import { MediaService } from 'src/app/shared/media/media.service';
+import { Movie } from 'src/app/shared/movie/movie';
 import { MovieFragmentPacket } from 'src/app/shared/packets/movie-fragment.packet';
 import { RoomState } from 'src/app/shared/room/room-state';
 import { RoomService } from 'src/app/shared/room/room.service';
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
 
   videoSrc?: string;
   roomState?: RoomState;
-  storageUsage: string = './.';
+  storageUsage: string = 'Loading...';
+  movies: Movie[] = [];
 
   constructor(
     private roomService: RoomService,
@@ -36,6 +38,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.storageService.getMovies().then((movies) => this.movies = movies);
     interval(10).subscribe(async () => {
       this.storageUsage = (await this.storageService.getStorageEstimateReadable()).usage;
       if (this.roomState?.movie?.id && !this.roomService.isHost) {
@@ -76,21 +79,32 @@ export class HomeComponent implements OnInit {
     return !!this.roomService.isHost;
   }
 
+  loadMovie(movie: Movie): void {
+    this.roomService.createRoom('User' + Math.random().toFixed(4).toString().substring(2)).subscribe((id) => {
+      this.roomService.roomState.pipe(first()).subscribe((roomState) => {
+        if (!roomState) return;
+        roomState.movie = movie;
+        this.roomService.setRoomState(roomState);
+      });
+      this.router.navigate(['lobby', id]);
+    });
+  }
+
   loadFile(): void {
     this.fileService.loadFile('.mp4').pipe(
-      switchMap((blob) => this.roomService.createRoom('User' + Math.random().toFixed(4).toString().substring(2)).pipe(map((id) => ({id, blob})))),
-    ).subscribe(({id, blob}) => {
+      switchMap((file) => this.roomService.createRoom('User' + Math.random().toFixed(4).toString().substring(2)).pipe(map((id) => ({id, file})))),
+    ).subscribe(({id, file}) => {
       const movie = {
         id: id,
         hash: '',
-        mime_type: blob.type,
-        file_size: blob.size,
-        title: 'temp',
-        downloaded_length: blob.size,
-        content_length: blob.size,
+        mime_type: file.type,
+        file_size: file.size,
+        title: file.name,
+        downloaded_length: file.size,
+        content_length: file.size,
         corrupt: false,
       };
-      this.storageService.putMovieWithBlob(movie, blob);
+      this.storageService.putMovieWithBlob(movie, file);
       this.roomService.roomState.pipe(first()).subscribe((roomState) => {
         if (!roomState) return;
         roomState.movie = movie;
