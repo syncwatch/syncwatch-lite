@@ -58,6 +58,20 @@
               ],
               "outputHashing": "all"
             },
+            "noservice": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.noservice.ts"
+                }
+              ]
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -74,6 +88,9 @@
           "configurations": {
             "production": {
               "browserTarget": "syncwatch-lite:build:production"
+            },
+            "noservice": {
+              "browserTarget": "syncwatch-lite:build:noservice"
             },
             "development": {
               "browserTarget": "syncwatch-lite:build:development"
