@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1675775927469,
+  "timestamp": 1676217653860,
   "index": "/syncwatch-lite/app/index.html",
   "assetGroups": [
     {
@@ -16,7 +16,7 @@
         "/syncwatch-lite/app/953.fcd40d567ef4854e.js",
         "/syncwatch-lite/app/favicon.ico",
         "/syncwatch-lite/app/index.html",
-        "/syncwatch-lite/app/main.66e1c053bda178d2.js",
+        "/syncwatch-lite/app/main.c826655c43cb6f3b.js",
         "/syncwatch-lite/app/manifest.webmanifest",
         "/syncwatch-lite/app/polyfills.d4b17772434cd647.js",
         "/syncwatch-lite/app/runtime.7bafebd42175d141.js",
@@ -58,8 +58,8 @@
     "/syncwatch-lite/app/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/syncwatch-lite/app/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/syncwatch-lite/app/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/syncwatch-lite/app/index.html": "a4f355142dd904bd9e3720b04faa2a2524407484",
-    "/syncwatch-lite/app/main.66e1c053bda178d2.js": "187b423c095440ec387a9f504b5054135630b799",
+    "/syncwatch-lite/app/index.html": "e29aeb517551c24a5cbc741485a049eca99bd2b1",
+    "/syncwatch-lite/app/main.c826655c43cb6f3b.js": "fa0baca0da5bd8892dafccc058c3128124aa01c0",
     "/syncwatch-lite/app/manifest.webmanifest": "2b9af9ba29fdb8d3abd454b1c768248f6a17c844",
     "/syncwatch-lite/app/polyfills.d4b17772434cd647.js": "4ebc0c477ef46903a05f630f6024abe78f0990b5",
     "/syncwatch-lite/app/runtime.7bafebd42175d141.js": "625c859b85d1280c083d6cc997a26ef38f8fa518",
