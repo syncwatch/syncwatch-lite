@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1676217653860,
+  "timestamp": 1676290293725,
   "index": "/syncwatch-lite/app/index.html",
   "assetGroups": [
     {
@@ -11,15 +11,15 @@
         "ignoreVary": true
       },
       "urls": [
-        "/syncwatch-lite/app/696.939e9f4f155ca381.js",
+        "/syncwatch-lite/app/696.14f83ecb8a462276.js",
         "/syncwatch-lite/app/82.24fad4c3b81c2f41.js",
         "/syncwatch-lite/app/953.fcd40d567ef4854e.js",
         "/syncwatch-lite/app/favicon.ico",
         "/syncwatch-lite/app/index.html",
-        "/syncwatch-lite/app/main.c826655c43cb6f3b.js",
+        "/syncwatch-lite/app/main.7f4273879e11aa1b.js",
         "/syncwatch-lite/app/manifest.webmanifest",
-        "/syncwatch-lite/app/polyfills.d4b17772434cd647.js",
-        "/syncwatch-lite/app/runtime.7bafebd42175d141.js",
+        "/syncwatch-lite/app/polyfills.930518d97ca5ec02.js",
+        "/syncwatch-lite/app/runtime.c709036c058f2e72.js",
         "/syncwatch-lite/app/styles.ef46db3751d8e999.css"
       ],
       "patterns": []
@@ -46,7 +46,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/syncwatch-lite/app/696.939e9f4f155ca381.js": "28d6b3ff5cb3b2b013f379278a91b5b6d04f092d",
+    "/syncwatch-lite/app/696.14f83ecb8a462276.js": "70673d3b96337dc610f844ddbfa0dd084a0e9ada",
     "/syncwatch-lite/app/82.24fad4c3b81c2f41.js": "4fa263a6b54c18350d6c0f80f9d6f5824f93429e",
     "/syncwatch-lite/app/953.fcd40d567ef4854e.js": "dc20d13c9f1a32c4c391d55b832b19e599eef2f7",
     "/syncwatch-lite/app/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
@@ -58,11 +58,11 @@
     "/syncwatch-lite/app/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/syncwatch-lite/app/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/syncwatch-lite/app/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/syncwatch-lite/app/index.html": "e29aeb517551c24a5cbc741485a049eca99bd2b1",
-    "/syncwatch-lite/app/main.c826655c43cb6f3b.js": "fa0baca0da5bd8892dafccc058c3128124aa01c0",
+    "/syncwatch-lite/app/index.html": "d0a313566467e7086c3fca051f22b859aa9e63ae",
+    "/syncwatch-lite/app/main.7f4273879e11aa1b.js": "599845f1c440773cbde949c2a284377ef1458997",
     "/syncwatch-lite/app/manifest.webmanifest": "2b9af9ba29fdb8d3abd454b1c768248f6a17c844",
-    "/syncwatch-lite/app/polyfills.d4b17772434cd647.js": "4ebc0c477ef46903a05f630f6024abe78f0990b5",
-    "/syncwatch-lite/app/runtime.7bafebd42175d141.js": "625c859b85d1280c083d6cc997a26ef38f8fa518",
+    "/syncwatch-lite/app/polyfills.930518d97ca5ec02.js": "cb2c09d2f11f70c68e8547e6502c592c04e447b8",
+    "/syncwatch-lite/app/runtime.c709036c058f2e72.js": "8c65a6a0328afd3bd5b273749d11eb42adf4ae58",
     "/syncwatch-lite/app/styles.ef46db3751d8e999.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
   },
   "navigationUrls": [
